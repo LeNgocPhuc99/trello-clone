@@ -1,11 +1,11 @@
 import Header from "@/components/Header";
-import Body from "@/components/Body";
+import Board from "@/components/Board";
 
 export default function Home() {
   return (
     <main>
       <Header />
-      <Body />
+      <Board />
     </main>
   );
 }
