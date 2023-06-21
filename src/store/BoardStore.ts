@@ -7,6 +7,9 @@ interface BoardState {
     getBoard: () => void
     setBoardState: (board: Board) => void
     updateTodoInDB: (todo: Todo, columnId: TypeColum) => void
+
+    searchString: string
+    setSearchString: (searchString: string) => void
 }
 
 // create store
@@ -14,6 +17,9 @@ export const useBoardStore = create<BoardState>((set) => ({
     board: {
         columns: new Map<TypeColum, Column>()
     },
+    
+    searchString: '',
+    setSearchString: (searchString) => set({ searchString }),
 
     getBoard: async () => {
         // fetch data form database
