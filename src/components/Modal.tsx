@@ -10,7 +10,7 @@ import TaskTypeRadioGroup from "./TaskTypeRadioGroup";
 import Image from "next/image";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 
-const Model = () => {
+const Modal = () => {
   const imagePickerRef = useRef<HTMLInputElement>(null);
   const [addTask, image, setImage, newTaskInput, setNewTaskInput, newTaskType] =
     useBoardStore((state) => [
@@ -135,4 +135,4 @@ const Model = () => {
   );
 };
 
-export default Model;
+export default Modal;
