@@ -1,4 +1,4 @@
-import Model from "@/components/Model";
+import Model from "@/components/Modal";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
