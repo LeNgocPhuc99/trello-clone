@@ -1,3 +1,4 @@
+import Model from "@/components/Model";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -15,6 +16,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true}>
       <body className="bg-[#F5F6F8]" suppressHydrationWarning={true}>
         {children}
+        <Model />
       </body>
     </html>
   );

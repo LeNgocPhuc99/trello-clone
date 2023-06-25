@@ -1,10 +1,14 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import getUrl from "@/libs/getUrl";
+
 import { XCircleIcon } from "@heroicons/react/24/solid";
 import {
   DraggableProvidedDragHandleProps,
   DraggableProvidedDraggableProps,
 } from "react-beautiful-dnd";
+import Image from "next/image";
 
 type Props = {
   todo: Todo;
@@ -23,6 +27,21 @@ const TodoCard = ({
   draggableProps,
   dragHandleProps,
 }: Props) => {
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (todo.image) {
+      const fetchImage = async () => {
+        const url = await getUrl(todo.image!);
+        if (url) {
+          setImageUrl(url.toString());
+        }
+      };
+
+      fetchImage();
+    }
+  }, []);
+
   return (
     <div
       className="bg-white rounded-md space-y-2 drop-shadow-md"
@@ -36,6 +55,16 @@ const TodoCard = ({
           <XCircleIcon className="ml-5 h-8 w-8" />
         </button>
       </div>
+
+      {imageUrl && (
+        <Image
+          src={imageUrl}
+          alt="Task Image"
+          width={400}
+          height={200}
+          className="w-full object-cover rounded-b-md"
+        />
+      )}
     </div>
   );
 };
